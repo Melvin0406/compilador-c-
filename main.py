@@ -9,12 +9,12 @@ def lexer(fileString):
         char = fileString[i]
 
         # Skip whitespace
-        if char.isspace():
-            i += 1
-            continue
+        #if char.isspace():
+        #    i += 1
+        #    continue
 
         # Check for keywords and identifiers
-        if char.isalpha() or char == '_':
+        if  char.isalpha() or char == '_':
             start = i
             while i < len(fileString) and (fileString[i].isalnum() or fileString[i] == '_'):
                 i += 1
@@ -30,7 +30,7 @@ def lexer(fileString):
             continue
 
         # Check for symbols
-        if char in ['+', '-', '*', '/', '=', '(', ')', '{', '}', ';', ',', ':', '!', '<', '>', '&', '|', '^', '~', '?', '"']:
+        if char.isspace() or char in ['+', '-', '*', '/', '=', '(', ')', '{', '}', ';', ',', ':', '!', '<', '>', '&', '|', '^', '~', '?', '"']:
             tokens.append(char)
             i += 1
             continue
